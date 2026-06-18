@@ -1,0 +1,29 @@
+ {% load static %}
+<nav class="fixed top-0 w-full font-poppins bg-green-300 p-4">
+    <div class="flex justify-between items-center mx-1">
+        <div class="flex items-center gap-2" >
+            <img src="{% static 'images/IndonesiaFlag.png' %}" alt="Indonesian Flag" class="h-8 w-10 rounded-full border-white shadow-2xl">
+            <span class="font-bold text-2xl ">SUNARYA SEO</span>
+        </div>
+        <div class="mr-3 ">
+            <ul class="flex items-center gap-5 font-semibold">
+                <li><a href="/" class="hover:bg-green-400">HOME</a></li>
+                <li class="group relative cursor-pointer p-2">
+                    <a href="" >PUBLICATION</a> 
+                    <ul class=" absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                        <li>
+                            <a href="{% url 'journal'%}" class="hover:bg-green-400 pl-5">JOURNAL</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'conference'%}" class="hover:bg-green-400 pl-5">CONFERENCE</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'hki'%}" class="hover:bg-green-400">HKI</a></li>
+                <li><a href="{% url 'certification'%}" class="hover:bg-green-400" >CERTIFICATION</a></li>
+                <li><a href="{% url 'map'%}" class="hover:bg-green-400">MAP</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

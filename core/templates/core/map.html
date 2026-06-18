@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{%block content %}
+<section class="mx-32">
+    <div>
+        <div>
+            <h1 class="font-extrabold text-4xl mb-6 mt-4">Peta Populasi Wilayah</h1>
+
+            <form action="{% url 'map' %}" method="POST" class="flex my-2.5 font-semibold justify-start gap-10">
+                 {% csrf_token %}
+                <div>
+                    <label for="minPol">Minimal Populasi</label><br>
+                    <input type="number" id="minPol" name="minPol" class="border-2 border-amber-500" value="{{minPol}}">
+                </div>
+                <div>
+                    <label for="keyword">Nama Mengandung</label><br>
+                    <input type="text" id="keyword" name="keyword" class="border-2 border-amber-500" value="{{keyword}}">
+                </div>
+                 <div>
+                    <label for="name">Pilih Nama</label><br>
+                    <select name="name" id="name" class="border-2 border-amber-500">
+                        <option value="">Pilih Nama</option>
+                        {% for name in names %}
+                            <option value="{{name}}">{{name}}</option>
+                        {%endfor%}
+                    </select>
+                 </div>
+
+                <div class="bg-amber-500 rounded-4xl">
+                    <button type="submit" class="flex items-center justify-center text-white py-2 px-8 text-center">Filter</button>
+                </div>
+            </form>
+        </div>
+        <div class="m-0.5 bg-amber-100 w-full">
+            {{ map_html | safe}}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
